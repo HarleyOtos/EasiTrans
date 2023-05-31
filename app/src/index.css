@@ -24,12 +24,6 @@ body {
     radial-gradient(at 50% 0%, hsla(225, 39%, 25%, 1) 0, transparent 50%);
 }
 
-.gradient-bg-unique {
-  background-color: #0f0e13;
-  background-image:
-    radial-gradient(at 40% 20%, hsla(253, 17%, 7%, 1) 0, transparent 50%),
-    radial-gradient(at 50% 91%, hsla(227, 26%, 21%, 1) 0, transparent 50%);
-}
 
 .gradient-bg-footer {
   background-color: #1f193a;
