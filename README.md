@@ -1,4 +1,4 @@
-## EasiTrans 
+## EasiTrans - A Web 3.0 Blockchain Application
 *A fun and easy way of sending internet money to friends and family.* 
 
 
