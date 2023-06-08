@@ -13,7 +13,7 @@ const App = () => {
         <Welcome />
         <Services />
         <Transactions />
-      <div className='fixed bottom-0 w-full gradient-bg-footer'>
+      <div className='w-full gradient-bg-footer'>
         <Footer />
       </div>
     </div>
