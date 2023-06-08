@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react';
 
-import { AiFillAlipayCircle } from "react-icons/ai";
 import { SiEthereum } from 'react-icons/si'
 import { BsInfoCircle } from "react-icons/bs";
+
+import { TransactionContext } from "../context/TransContext";
 
 
 import { Loader } from "./";
@@ -10,26 +11,30 @@ import { Loader } from "./";
 const commonStyles = "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white";
 
 const Input = ({ placeholder, name, type, handleChange, value }) => (
-    <input 
-      placeholder={placeholder}
-      name={name}
-      type={type}
-      value={value}
-      step="0.0001"
-      onChange={(e) => handleChange(e, name)}
-      className='my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism'
-    />
+  <input
+    placeholder={placeholder}
+    name={name}
+    type={type}
+    value={value}
+    step="0.0001"
+    onChange={(e) => handleChange(e, name)}
+    className='my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism'
+  />
 );
 
 const Welcome = () => {
 
-  const connectWallet = () => {
+  const { connectWallet, currentAccount, formData, sendTransaction, handleChange } = useContext(TransactionContext);
 
-  }
+  const handleSubmit = (e) => {
+    const { addressTo, amount, keyword, message } = formData;
 
-  const handleSubmit = () => {
+    e.preventDefault();
 
-  }
+    if (!addressTo || !amount || !keyword || !message) return;
+
+    sendTransaction();
+  };
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -42,13 +47,14 @@ const Welcome = () => {
             <h3 className='text-left mt-5 font-light md:w-9/12 w-11/12 text-base text-white'>
               A fun and easy way of sending internet money to friends and family.
             </h3>
-            <button
+            {!currentAccount && (<button
               type='button'
               onClick={connectWallet}
               className='flex flex-row justify-center items-center my-5 bg-[#2952e3] p-3 rounded-md cursor-pointer text-white font-bold hover:bg-[#2546bd]'
             >
               Connect Wallet
             </button>
+            )}
 
             <div className='grid sm:grid-cols-3 grid-cols-2 w-full mt-10'>
               <div className={`rounded-tl-2xl ${commonStyles}`}>
@@ -79,7 +85,7 @@ const Welcome = () => {
                   <div className='w-10 h-10 rounded-full border-2 border-white flex justify-center items-center'>
                     <SiEthereum fontSize={24} color='' />
                   </div>
-                  <BsInfoCircle fontSize={24} color=''/>
+                  <BsInfoCircle fontSize={24} color='' />
                 </div>
                 <div>
                   <p className='text-gray-700 font-semibold text-sm'>
@@ -93,27 +99,27 @@ const Welcome = () => {
             </div>
 
             <div className='p-5 sm:w-96 w-full flex flex-col justify-start items-center blue-glassmorphism'>
-                <Input placeholder="Address to" name="addressTo" type="text" handleChange={() => {}} />
-                <Input placeholder="Amount (ETH)" name="amount" type="number" handleChange={() => {}} />
-                <Input placeholder="Keyword (GIF)" name="keyword" type="text" handleChange={() => {}} />
-                <Input placeholder="Enter Message" name="message" type="text" handleChange={() => {}} />
-            
-            <div className='h-[1px] w-full bg-gray-400 my-2'/>
+              <Input placeholder="Address to" name="addressTo" type="text" handleChange={handleChange} />
+              <Input placeholder="Amount (ETH)" name="amount" type="number" handleChange={handleChange} />
+              <Input placeholder="Keyword (GIF)" name="keyword" type="text" handleChange={handleChange} />
+              <Input placeholder="Enter Message" name="message" type="text" handleChange={handleChange} />
 
-            {false ? (
+              <div className='h-[1px] w-full bg-gray-400 my-2' />
+
+              {false ? (
                 <Loader />
-            ) : (
-              <button
-              type='button'
-              onClick={handleSubmit}
-              className='text-white w-full mt-2 border-[1px] p-2 rounded-full border-[#3d4f7c] cursor-pointer'
-              >
-                Send
-              </button>
-            )}
+              ) : (
+                <button
+                  type='button'
+                  onClick={handleSubmit}
+                  className='text-white w-full mt-2 border-[1px] p-2 rounded-full border-[#3d4f7c] cursor-pointer'
+                >
+                  Send
+                </button>
+              )}
             </div>
-            
-              
+
+
           </div>
 
         </div>
