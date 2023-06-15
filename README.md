@@ -4,7 +4,7 @@
 ### Introduction
 EasiTrans is a web application built on Web 3.0 principles that allows users to easily send internet money to their friends and family. This repository contains the source code for EasiTrans. For more details about the project, you can visit the following resources:
 
-* Deployed Site: https://easitrans.netlify.app/
+* Deployed Site: [EasiTrans](https://easitrans.netlify.app/)
 * Final Project Blog Article: [Read on Linkedin](https://www.linkedin.com/pulse/developing-innovative-application-journey-technical-personal-otomofa)
 
 ### Technologies:
