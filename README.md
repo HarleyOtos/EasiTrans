@@ -4,8 +4,8 @@
 ### Introduction
 EasiTrans is a web application built on Web 3.0 principles that allows users to easily send internet money to their friends and family. This repository contains the source code for EasiTrans. For more details about the project, you can visit the following resources:
 
-* Deployed Site: https://example.com
-* Final Project Blog Article: https://example.com
+* Deployed Site: https://easitrans.netlify.app/
+* Final Project Blog Article: [Read on Linkedin](https://www.linkedin.com/pulse/developing-innovative-application-journey-technical-personal-otomofa)
 
 ### Technologies:
 *   Languages: Solidity language, Javascript, HTML, CSS
@@ -15,19 +15,20 @@ Platform: Ethereum, netlify
 *   Books/resources: Tailwindcss documentation, reactjs Doc, and solidity documentation.
 
 ### Authors Contact Info:
-Git: 
+*Git:*
 *   [Harley Otomofa](https://github.com/HarleyOtos)
 *   [Samuel Chibwe](https://github.com/chibwesamuel)
-* Author LinkedIn Profiles:
-  - Harley Otomofa: https://www.linkedin.com/in/harley-otos
-  - Samuel Chibwe: https://www.linkedin.com/in/samuel-chibwe-51b964186
+
+*LinkedIn Profiles:*
+  - [Harley Otomofa](https://www.linkedin.com/in/harley-otomofa/)
+  - [Samuel Chibwe](https://www.linkedin.com/in/samuel-chibwe-51b964186)
 
 ### Installation
 To run EasiTrans locally, please follow these steps:
 
 1. Clone the repository: 
 ```
-git clone https://github.com/your-username/easitrans.git
+git clone https://github.com/HarleyOtos/easitrans.git
 ```
 2. Navigate to the project directory:
 ```
