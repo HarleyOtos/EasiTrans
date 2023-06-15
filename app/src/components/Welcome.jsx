@@ -4,9 +4,8 @@ import { SiEthereum } from 'react-icons/si'
 import { BsInfoCircle } from "react-icons/bs";
 
 import { TransactionContext } from "../context/TransContext";
-
-
 import { Loader } from "./";
+import { shortenAddress } from "../utils/shortenAddress";
 
 const commonStyles = "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white";
 
@@ -23,9 +22,7 @@ const Input = ({ placeholder, name, type, handleChange, value }) => (
 );
 
 const Welcome = () => {
-
-  const { connectWallet, currentAccount, formData, sendTransaction, handleChange } = useContext(TransactionContext);
-
+  const { connectWallet, currentAccount, formData, sendTransaction, handleChange, isLoading } = useContext(TransactionContext);
   const handleSubmit = (e) => {
     const { addressTo, amount, keyword, message } = formData;
 
@@ -88,9 +85,15 @@ const Welcome = () => {
                   <BsInfoCircle fontSize={24} color='' />
                 </div>
                 <div>
-                  <p className='text-gray-700 font-semibold text-sm'>
-                    Connected Address
-                  </p>
+                  {currentAccount ? (
+                    <p className='text-gray-700 font-bold text-sm'>
+                      {shortenAddress(currentAccount)}
+                    </p>
+                  ) : (
+                    <p className='text-gray-700 font-bold text-sm'>
+                      Connected Wallet
+                    </p>
+                  )}
                   <p className='text-gray-700 font-bold text-lg mt-1'>
                     EasiTrans
                   </p>
@@ -106,7 +109,7 @@ const Welcome = () => {
 
               <div className='h-[1px] w-full bg-gray-400 my-2' />
 
-              {false ? (
+              {isLoading ? (
                 <Loader />
               ) : (
                 <button
@@ -118,13 +121,9 @@ const Welcome = () => {
                 </button>
               )}
             </div>
-
-
           </div>
-
         </div>
       </div>
-
     </div>
   )
 }
